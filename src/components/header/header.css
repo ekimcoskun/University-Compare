@@ -1,0 +1,9 @@
+.link {
+  transition: color 0.2s, font-size 0.2s;
+}
+
+.link:hover {
+  color: #ffcc00;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}

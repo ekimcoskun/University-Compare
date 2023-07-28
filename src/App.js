@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Layout from "./components/layout";
+import { Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { lazy, useMemo, useState } from "react";
+import { PrivateRoutes } from "./routers/PrivateRoutes";
 
 function App() {
+  const NotFoundPage = lazy(() => import("./pages/notFound"));
+  const [memoizedUser, setMemoizedUser] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" bg-slate-500 h-full">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/*"
+            element={
+              <Layout>
+                <PrivateRoutes />
+              </Layout>
+            }
+          />
+          <Route path="/error" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
