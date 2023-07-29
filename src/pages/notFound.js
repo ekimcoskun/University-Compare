@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const notFound = () => {
+const NotFound = () => {
   return (
-    <div className="w-full text-center py-10">
-      <div className="w-full">
-        <h1>404 - Page Not Found</h1>
-      </div>
-      <div className="w-full">
-        <p>Sorry, This page could not be found.</p>
-      </div>
-      <div className="w-full">
-        <Link className="font-bold" to="/">
-          Back to Home
-        </Link>
-      </div>
+    <div
+      className="flex flex-col items-center justify-center bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white"
+      style={{ height: "81dvh" }}
+    >
+      <h1 className="text-5xl font-bold mb-4">Oops! 404</h1>
+      <p className="text-xl">Bu sayfa maalesef bulunamadı.</p>
+      <Link
+        to="/"
+        className="mt-8 px-6 py-3 rounded-md bg-white text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition duration-300"
+      >
+        Anasayfaya Dön
+      </Link>
     </div>
   );
 };
 
-export default notFound;
+export default NotFound;

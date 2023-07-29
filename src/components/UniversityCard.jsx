@@ -5,11 +5,13 @@ const UniversityCard = ({ university }) => {
   const { university_id, university_name, city, logo } = university;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 w-64">
+    <div className="bg-white rounded-lg shadow-lg p-6 w-full flex flex-col items-center">
       <img
         src={logo}
         alt={university_name}
-        className="w-full h-32 object-contain mb-4 rounded-lg"
+        width={100}
+        height={100}
+        className="object-contain mb-4 rounded-full"
       />
       <h3 className="text-xl font-semibold text-gray-800 mb-2">{university_name}</h3>
       <p className="text-gray-600 mb-2">Şehir: {city}</p>
