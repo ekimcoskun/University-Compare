@@ -9,8 +9,11 @@ class Routers {
   }
 
   initializeRoutes() {
-    this.router.get(`/getAll`, this.UniversityController.getAllUniversity);
-    this.router.get(`/getById`, this.UniversityController.getUniversityById);
+    this.router.get(
+      `/university/getAll/:page/:limit`,
+      this.UniversityController.getAllUniversities
+    );
+    this.router.get(`/university/getById/:id`, this.UniversityController.getUniversityById);
   }
 }
 

@@ -6,7 +6,7 @@ const initialState = {
     message: "",
     status: false,
     universities: [],
-    totalRows: 0,
+    pagination: {},
   },
   universityByIdState: {
     message: "",
@@ -39,7 +39,7 @@ export const getUniversitySlice = createSlice({
         state.universityState.status = false;
         state.universityState.universities = action.payload.data && action.payload.data;
         state.universityState.message = action.payload.message && action.payload.message;
-        state.universityState.totalRows = action.payload.pagination.totalRecords;
+        state.universityState.pagination = action.payload?.pagination;
       })
       .addCase(getAllUniversities.rejected, (state, action) => {
         state.universityState.status = "idle";
