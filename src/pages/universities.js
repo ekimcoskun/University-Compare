@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUniversities } from "../store/slice/university/universitySlice";
 import UniversityCard from "../components/UniversityCard";
@@ -12,11 +12,11 @@ const Universities = () => {
 
   useEffect(() => {
     dispatch(getAllUniversities({ page: 1, size: 10 }));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log(totalRecords);
-  }, [universities]);
+  }, [universities, totalRecords]);
 
   return (
     <div className="container mx-auto px-4">

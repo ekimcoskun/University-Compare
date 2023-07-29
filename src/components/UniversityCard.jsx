@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const UniversityCard = ({ university }) => {
-  const { university_id, university_name, city, logo, website } = university;
+  const { university_id, university_name, city, logo } = university;
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 w-64">
