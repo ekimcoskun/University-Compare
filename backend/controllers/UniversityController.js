@@ -6,6 +6,7 @@ class UniversityController {
     try {
       const page = req.params.page;
       const limit = req.params.limit;
+      const filter = req.params.filter;
       const startIndex = (page - 1) * limit;
       const endIndex = page * limit;
       const paginatedData = MOCK_DATA.slice(startIndex, endIndex);

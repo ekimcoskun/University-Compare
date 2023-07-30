@@ -8,7 +8,7 @@ export default function Layout(props) {
       style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
     >
       <div style={{ flex: "1 0 auto" }}>
-        <Header />
+        <Header memoizedUser={props.memoizedUser} />
         <main style={{ flex: "1" }}>{props.children}</main>
       </div>
       <Footer />

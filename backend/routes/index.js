@@ -10,7 +10,7 @@ class Routers {
 
   initializeRoutes() {
     this.router.get(
-      `/university/getAll/:page/:limit`,
+      `/university/getAll/:page/:limit/:filter?`,
       this.UniversityController.getAllUniversities
     );
     this.router.get(`/university/getById/:id`, this.UniversityController.getUniversityById);

@@ -1,9 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import Routers from "./routes/index.js";
+import cors from "cors";
 
 const routers = new Routers().router;
 const app = express();
+
+app.use(cors());
 const PORT = process.env.PORT || 8081;
 
 app.use(bodyParser.urlencoded({ extended: true }));

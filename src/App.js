@@ -9,7 +9,16 @@ import { PrivateRoutes } from "./routers/PrivateRoutes";
 
 function App() {
   const NotFoundPage = lazy(() => import("./pages/notFound"));
+  const user = useSelector((state) => state?.userInformation?.user);
   const [memoizedUser, setMemoizedUser] = useState(null);
+
+  useMemo(() => {
+    if (user && user.role) {
+      setMemoizedUser(user);
+    } else {
+      setMemoizedUser(null);
+    }
+  }, [user]);
 
   return (
     <div className=" bg-slate-500 h-full">
@@ -18,7 +27,7 @@ function App() {
           <Route
             path="/*"
             element={
-              <Layout>
+              <Layout memoizedUser={memoizedUser}>
                 <PrivateRoutes />
               </Layout>
             }

@@ -17,8 +17,10 @@ const initialState = {
 export const getAllUniversities = createAsyncThunk(
   "universities/getAllUniversities",
   async (props) => {
-    const { page, size } = props;
-    const response = await axios.get(`${baseURL}/api/v1/university/getAll/${page}/${size}`);
+    const { page, size, filter } = props;
+    const response = await axios.get(
+      `${baseURL}/api/v1/university/getAll/${page}/${size}/${filter}`
+    );
     return response.data;
   }
 );
