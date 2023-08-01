@@ -18,14 +18,12 @@ export const getAllUniversities = createAsyncThunk(
   "universities/getAllUniversities",
   async (props) => {
     const { page, size, filter } = props;
-    const response = await axios.get(
-      `${baseURL}/api/v1/university/getAll/${page}/${size}/${filter}`
-    );
+    const response = await axios.get(`${baseURL}/api/university/getAll/${page}/${size}/${filter}`);
     return response.data;
   }
 );
 export const getUniversityById = createAsyncThunk("university/getById", async (id) => {
-  const response = await axios.get(`${baseURL}/api/v1/university/${id}`);
+  const response = await axios.get(`${baseURL}/api/university/${id}`);
   return response.data;
 });
 export const getUniversitySlice = createSlice({
