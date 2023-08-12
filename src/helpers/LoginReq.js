@@ -3,7 +3,7 @@ import { baseURL } from "../configurations/environments";
 import { RequestConfig } from "./RequestConfig";
 
 export const LoginReq = async (form) => {
-  let requestURL = baseURL + `/api/v1/auth`;
+  let requestURL = baseURL + `/api/auth/login`;
   let responseResult = {
     status: "",
     message: "",
@@ -14,7 +14,7 @@ export const LoginReq = async (form) => {
       responseResult = {
         status: true,
         message: response.data && response.data.message && response.data.message,
-        data: response.data && response.data.data && response.data.data,
+        data: response?.data,
       };
     })
     .catch((error) => {

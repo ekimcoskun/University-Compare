@@ -4,6 +4,7 @@ import { getAllUniversities } from "../store/slice/university/universitySlice";
 import UniversityCard from "../components/UniversityCard";
 import { RingLoader } from "react-spinners";
 import { debounce } from "lodash";
+import DebounceTextInput from "../components/DebounceTextInput";
 
 const Universities = () => {
   const dispatch = useDispatch();
@@ -56,23 +57,16 @@ const Universities = () => {
     dispatch(getAllUniversities({ filter: value, size: perPage, page: 1 }));
   };
 
-  const debounce_filter = useCallback(
-    debounce((value) => {
-      handleFilterChange(value);
-    }, 1000),
-    []
-  );
-
   return (
     <div>
       <div className="container mx-auto">
         <div className="py-8">
           <p className="text-white text-2xl font-semibold mb-4">Üniversiteler</p>
-          <input
-            type="text"
-            className="w-full px-4 py-2 border rounded-md"
-            placeholder="Üniversite Ara..."
-            onChange={(e) => debounce_filter(e.target.value)}
+          <DebounceTextInput
+            placeHolder="Üniversite Ara..."
+            onChange={(value) => handleFilterChange(value)}
+            delay={1000}
+            minLetter={3}
           />
         </div>
         {loading ? (

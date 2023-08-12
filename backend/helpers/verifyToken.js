@@ -18,9 +18,13 @@ const verifyToken = (req, res, next) => {
 };
 
 const generateAccessToken = (user) => {
-  const accessToken = jwt.sign({ id: user.id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, {
-    expiresIn: "1d",
-  });
+  const accessToken = jwt.sign(
+    { id: user.id, isAdmin: user.isAdmin, email: user.email },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "1d",
+    }
+  );
   return accessToken;
 };
 

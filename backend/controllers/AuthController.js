@@ -1,42 +1,26 @@
-import { MOCK_DATA } from "../MOCK_DATA.js";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { verifyToken, generateAccessToken, generateRefreshToken } from "../helpers/verifyToken.js";
-
+import bcrypt from "bcrypt";
+import DB from "../repository/db.js";
+const { Users } = DB;
 class AuthController {
-  constructor() {
-    this.users = [
-      {
-        id: 1,
-        email: "admin@admin.com",
-        password: "password",
-        firstName: "Admin",
-        lastName: "User",
-        isAdmin: true,
-        token: "",
-      },
-      {
-        id: 2,
-        email: "member@admin.com",
-        password: "password",
-        firstName: "Member",
-        lastName: "User",
-        isAdmin: false,
-        token: "",
-      },
-    ];
-  }
+  constructor() {}
 
   authLogin = async (req, res) => {
     try {
       const { email, password } = req.body;
-      const user = this.users.find((x) => x.email === email && x.password === password);
-      if (user) {
+      console.log(req.body);
+      if (!(email && password)) {
+        return res.status(400).json({ message: "Missing fields" });
+      }
+      const user = await Users.findOne({ where: { email } });
+      if (user && (await bcrypt.compare(password, user.password))) {
         const accessToken = generateAccessToken(user);
         const refreshToken = generateRefreshToken(user);
 
         // BURADA REFRESH TOKEN DBYE KAYDEDİLECEK
-        res.json({ email: user.email, password: user.password, accessToken, refreshToken });
+        res.json({ email: user.email, password: user.password, token: accessToken, refreshToken });
       } else {
         res.status(400).json({ message: "Email or password is incorrect" });
       }
