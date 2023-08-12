@@ -40,6 +40,11 @@ export default function Header({ user }) {
           </Link>
         </div>
         <div className="ml-auto flex items-center">
+          {user?.isAdmin && (
+            <Link to="/edit" className="link">
+              <p className="link ml-6 text-white text-3xl font-semibold">Düzenle</p>
+            </Link>
+          )}
           {!user ? (
             <>
               <Link to="/login" className="link">
@@ -80,12 +85,6 @@ export default function Header({ user }) {
                 </div>
               )}
             </div>
-          )}
-
-          {user?.isAdmin && (
-            <Link to="/edit" className="link">
-              <p className="link ml-6 text-white text-3xl font-semibold">Düzenle</p>
-            </Link>
           )}
         </div>
       </div>

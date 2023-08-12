@@ -9,6 +9,7 @@ export function PrivateRoutes({ user }) {
   const Login = lazy(() => import("../pages/login/index"));
   const Signup = lazy(() => import("../pages/signup/index"));
   const Edit = lazy(() => import("../pages/edit/index"));
+  const ChangePassword = lazy(() => import("../pages/changePassword"));
 
   return (
     <Suspense>
@@ -18,6 +19,7 @@ export function PrivateRoutes({ user }) {
         <Route path="/universities" element={<Universities />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/change-password" element={<ChangePassword />} />
         {user?.isAdmin && (
           <>
             <Route path="/edit" element={<Edit />} />
