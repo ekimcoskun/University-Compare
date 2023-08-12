@@ -28,7 +28,8 @@ class UniversityController {
 
   getUniversityById = async (req, res) => {
     try {
-      res.status(200).json(MOCK_DATA[0]);
+      console.log(MOCK_DATA[0]);
+      res.status(200).json({ data: MOCK_DATA[0] });
     } catch (err) {
       console.log(err);
     }

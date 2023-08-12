@@ -1,10 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Tab from "../../components/tab/Tab";
+import UniversityTab from "../../components/tab/adminEditTabs/UniversityTab";
+import UserTab from "../../components/tab/adminEditTabs/UserTab";
 
 const Edit = () => {
+  const tabs = [
+    {
+      id: 1,
+      label: "Üniversiteler",
+      content: <UniversityTab />,
+    },
+    {
+      id: 2,
+      label: "Kullanıcılar",
+      content: <UserTab />,
+    },
+  ];
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">EDİT</div>
+    <div className="mt-5 p-2">
+      <Tab tabs={tabs} />
+    </div>
   );
 };
 

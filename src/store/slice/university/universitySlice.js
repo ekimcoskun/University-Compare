@@ -23,7 +23,7 @@ export const getAllUniversities = createAsyncThunk(
   }
 );
 export const getUniversityById = createAsyncThunk("university/getById", async (id) => {
-  const response = await axios.get(`${baseURL}/api/university/${id}`);
+  const response = await axios.get(`${baseURL}/api/university/getById/${id}`);
   return response.data;
 });
 export const getUniversitySlice = createSlice({

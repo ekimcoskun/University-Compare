@@ -1,0 +1,37 @@
+.tabs {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: sans-serif;
+}
+
+.tab-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.tab:last-child {
+  border-right: 1px solid #ccc;
+}
+
+.tab-content-wrapper {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
