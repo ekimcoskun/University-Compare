@@ -8,6 +8,67 @@ const { Users } = DB;
 class AuthController {
   constructor() {}
 
+  getUsers = async (req, res) => {
+    try {
+      const { page, limit } = req.params;
+      if (typeof page !== "undefined" && typeof limit !== "undefined") {
+        const parsedPage = parseInt(page);
+        const parsedLimit = parseInt(limit);
+
+        if (isNaN(parsedPage) || isNaN(parsedLimit)) {
+          res.status(400).json({ message: "Invalid page or limit value" });
+        } else {
+          const offset = (parsedPage - 1) * parsedLimit;
+
+          try {
+            const users = await Users.findAll({
+              offset: offset,
+              limit: parsedLimit,
+            });
+
+            const totalRecords = await Users.count();
+            res.status(200).json({
+              data: users,
+              pagination: {
+                totalRecords: totalRecords,
+                page: parsedPage,
+                limit: parsedLimit,
+              },
+              message: "Success",
+              status: true,
+            });
+          } catch (error) {
+            console.error("Veri alınırken bir hata oluştu:", error);
+            res.status(500).json({ message: "Internal server error" });
+          }
+        }
+      } else {
+        res.status(400).json({ message: "Missing fields" });
+      }
+
+      /* const users = await Users.findAll({
+        //where: { first_name: filter },
+        offset: offset,
+        limit: limit,
+      });
+      const totalRecords = await Users.count();
+      if (users) {
+        return res.status(200).json({
+          data: users,
+          pagination: {
+            totalRecords: totalRecords,
+            page: page,
+            limit: limit,
+          },
+        });
+      } else {
+        return res.status(400).json({ message: "Users not found" });
+      } */
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   createUser = async (req, res) => {
     try {
       const { email, password, first_name, last_name, university_id } = req.body;

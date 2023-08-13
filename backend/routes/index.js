@@ -21,6 +21,7 @@ class Routers {
     this.router.post(`/auth/login`, this.AuthController.authLogin);
     this.router.post(`/auth/refresh`, this.AuthController.getRefreshToken);
     this.router.post(`/user/create`, this.UserController.createUser);
+    this.router.get(`/user/getAll/:page/:limit/:filter?`, this.UserController.getUsers);
   }
 }
 

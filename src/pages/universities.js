@@ -23,10 +23,6 @@ const Universities = () => {
     dispatch(getAllUniversities({ page: 1, size: perPage, filter }));
   }, []);
 
-  useEffect(() => {
-    console.log("loading", totalRecords);
-  }, [totalRecords]);
-
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
     dispatch(getAllUniversities({ page: currentPage + 1, size: perPage }));

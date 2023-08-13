@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { baseURL } from "../../../configurations/environment";
+import { baseURL } from "../../../configurations/environments";
 import { RequestConfig } from "../../../helpers/RequestConfig";
 const initialState = {
   usersState: {
@@ -17,14 +17,11 @@ const initialState = {
 };
 export const getAllUsersRedux = createAsyncThunk("users/getAllUserss", async (props) => {
   const { page, size } = props;
-  const response = await axios.get(
-    `${baseURL}/api/v1/admin/user/getAll/${page}/${size}`,
-    RequestConfig()
-  );
+  const response = await axios.get(`${baseURL}/api/user/getAll/${page}/${size}`, RequestConfig());
   return response.data;
 });
 export const getUserById = createAsyncThunk("users/getById", async (id) => {
-  const response = await axios.get(`${baseURL}/api/v1/admin/user/${id}`, RequestConfig());
+  const response = await axios.get(`${baseURL}/api/admin/user/${id}`, RequestConfig());
   return response.data;
 });
 export const getUsersSlice = createSlice({
