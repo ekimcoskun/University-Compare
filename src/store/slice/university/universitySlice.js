@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { baseURL } from "../../../configurations/environments";
+import { RequestConfig } from "../../../helpers/RequestConfig";
 const initialState = {
   universityState: {
     message: "",
@@ -18,12 +19,15 @@ export const getAllUniversities = createAsyncThunk(
   "universities/getAllUniversities",
   async (props) => {
     const { page, size, filter } = props;
-    const response = await axios.get(`${baseURL}/api/university/getAll/${page}/${size}/${filter}`);
+    const response = await axios.get(
+      `${baseURL}/api/university/getAll/${page}/${size}/${filter}`,
+      RequestConfig()
+    );
     return response.data;
   }
 );
 export const getUniversityById = createAsyncThunk("university/getById", async (id) => {
-  const response = await axios.get(`${baseURL}/api/university/getById/${id}`);
+  const response = await axios.get(`${baseURL}/api/university/getById/${id}`, RequestConfig());
   return response.data;
 });
 export const getUniversitySlice = createSlice({

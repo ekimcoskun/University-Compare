@@ -35,9 +35,6 @@ export default function Header({ user }) {
           <Link to="/universities" className="link">
             <p className="link text-white text-3xl font-semibold">Üniversiteler</p>
           </Link>
-          <Link to="/compare" className="link">
-            <p className="link ml-6 text-white text-3xl font-semibold">Kıyasla</p>
-          </Link>
         </div>
         <div className="ml-auto flex items-center">
           {user?.isAdmin && (

@@ -5,12 +5,15 @@ import UniversityCard from "../components/UniversityCard";
 import { RingLoader } from "react-spinners";
 import { debounce } from "lodash";
 import DebounceTextInput from "../components/DebounceTextInput";
+import { useNavigate } from "react-router-dom";
 
 const Universities = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [isNextPage, setIsNextPage] = useState(false);
+  const [selectedUniversities, setSelectedUniversities] = useState([]);
   const [isPrevPage, setIsPrevPage] = useState(false);
   const [filter, setFilter] = useState("");
   const universities = useSelector((state) => state.universitySlice.universityState.universities);
@@ -53,6 +56,30 @@ const Universities = () => {
     dispatch(getAllUniversities({ filter: value, size: perPage, page: 1 }));
   };
 
+  const handleUniversitySelect = (university) => {
+    const universityIndex = selectedUniversities.findIndex(
+      (u) => u.university_id === university.university_id
+    );
+
+    if (universityIndex === -1) {
+      setSelectedUniversities([...selectedUniversities, university]);
+    } else {
+      const updatedSelectedUniversities = [...selectedUniversities];
+      updatedSelectedUniversities.splice(universityIndex, 1);
+      setSelectedUniversities(updatedSelectedUniversities);
+    }
+  };
+
+  useEffect(() => {
+    console.log(selectedUniversities);
+  }, [selectedUniversities]);
+
+  const handleComparisonClick = () => {
+    const selectedIds = selectedUniversities.map((university) => university.university_id);
+    const comparisonUrl = `/comparison?universityIds=${selectedIds.join(",")}`;
+    navigate(comparisonUrl);
+  };
+
   return (
     <div>
       <div className="container mx-auto">
@@ -73,7 +100,11 @@ const Universities = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {universities && universities.length > 0 ? (
               universities.map((university, index) => (
-                <UniversityCard key={index} university={university} />
+                <UniversityCard
+                  key={index}
+                  university={university}
+                  onUniversitySelect={handleUniversitySelect}
+                />
               ))
             ) : (
               <p className="text-white text-xl font-semibold mb-4">No universities found.</p>
@@ -98,6 +129,39 @@ const Universities = () => {
             </button>
           </div>
         )}
+        <div className="fixed bottom-0 right-0 w-full bg-gray-100 shadow-lg md:w-1/2 rounded-lg md:m-4">
+          <div className="relative">
+            {selectedUniversities.length > 0 && (
+              <div className="p-4 md:p-6">
+                <h2 className="text-xl font-semibold mb-4">Selected Universities</h2>
+                <div className="flex flex-row gap-2 md:gap-4 overflow-x-auto">
+                  {selectedUniversities.map((university, index) => (
+                    <div key={index} className="flex flex-col items-center text-center">
+                      <img
+                        src={university.logo}
+                        alt={`${university.university_name} Logo`}
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
+                      />
+                      <p className="text-gray-600 mt-2">
+                        {university.university_name.length > 20
+                          ? `${university.university_name.substring(0, 20)}...`
+                          : university.university_name}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {selectedUniversities.length >= 2 && (
+              <button
+                className="mt-2 mr-2 absolute top-0 right-0  bg-blue-500 text-white px-4 py-2 rounded-md"
+                onClick={handleComparisonClick}
+              >
+                Kıyasla
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
