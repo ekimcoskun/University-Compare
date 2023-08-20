@@ -8,6 +8,7 @@ React
 Redux Toolkit
 MySQL
 Sequelize
+Tailwind
 
 # Installation
 
@@ -46,7 +47,7 @@ npm start
 The frontend client will run on port 3000 by default and open in your browser.
 
 License
-This project is not licensed and is free for anyone to use or modify.
+MIT LICENSE
 
 Contributing
 This project is not open for contributions at the moment, but feel free to fork it or clone it if you want to experiment with it.
