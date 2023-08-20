@@ -11,6 +11,7 @@ export function PrivateRoutes({ user }) {
   const Edit = lazy(() => import("../pages/edit/index"));
   const ChangePassword = lazy(() => import("../pages/changePassword"));
   const UniversityDetails = lazy(() => import("../pages/universityDetails"));
+  const Comparison = lazy(() => import("../pages/comparison"));
   return (
     <Suspense>
       <Routes>
@@ -21,6 +22,7 @@ export function PrivateRoutes({ user }) {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/comparison/:universityIds" element={<Comparison />} />
         {user?.isAdmin && (
           <>
             <Route path="/edit" element={<Edit />} />

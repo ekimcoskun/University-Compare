@@ -14,6 +14,11 @@ const initialState = {
     status: "idle",
     university: [],
   },
+  universitiesForComparisonState: {
+    message: "",
+    status: "idle",
+    universities: [],
+  },
 };
 export const getAllUniversities = createAsyncThunk(
   "universities/getAllUniversities",
@@ -30,6 +35,16 @@ export const getUniversityById = createAsyncThunk("university/getById", async (i
   const response = await axios.get(`${baseURL}/api/university/getById/${id}`, RequestConfig());
   return response.data;
 });
+
+export const getUniveritiesForComparison = createAsyncThunk(
+  "universities/getUniversitiesForComparison",
+  async (props) => {
+    const { ids } = props;
+    const response = await axios.get(`${baseURL}/api/university/getByIds/${ids}`, RequestConfig());
+    return response.data;
+  }
+);
+
 export const getUniversitySlice = createSlice({
   name: "allUniversitiesState",
   initialState,
@@ -57,6 +72,17 @@ export const getUniversitySlice = createSlice({
       })
       .addCase(getUniversityById.rejected, (state, action) => {
         state.universityByIdState.status = "failed";
+      })
+      .addCase(getUniveritiesForComparison.pending, (state) => {
+        state.universitiesForComparisonState.status = "loading";
+      })
+      .addCase(getUniveritiesForComparison.fulfilled, (state, action) => {
+        state.universitiesForComparisonState.status = "success";
+        state.universitiesForComparisonState.universities =
+          action.payload.data && action.payload.data;
+      })
+      .addCase(getUniveritiesForComparison.rejected, (state, action) => {
+        state.universitiesForComparisonState.status = "failed";
       })
       .addCase("RESET", () => initialState);
   },

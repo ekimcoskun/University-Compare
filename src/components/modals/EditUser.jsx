@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { RingLoader } from "react-spinners";
 import { updateUniversity } from "../../helpers/universityHelper/createEditDeleteUniversity";
+import { updateUser } from "../../helpers/userHelper/createEditDeleteUser";
 
 export const EditUser = ({ showModal, setShowModal, row }) => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
 
   const handleSubmit = async () => {
     setLoading(true);
-    const response = await updateUniversity(formData);
+    const response = await updateUser(formData);
     setShowModal(false);
     if (response.status) {
       Swal.fire({
@@ -64,7 +65,7 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
                 <div className="border-2 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                    <h3 className="text-xl font-semibold">Üniversite Ekle</h3>
+                    <h3 className="text-xl font-semibold">Kullanıcı Düzenle</h3>
                     <button
                       className="pl-10 ml-auto bg-transparent border-0 text-black text-3xl leading-none font-semibold outline-none focus:outline-none"
                       onClick={() => setShowModal(false)}

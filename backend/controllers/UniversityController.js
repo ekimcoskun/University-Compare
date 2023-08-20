@@ -34,6 +34,16 @@ class UniversityController {
       console.log(err);
     }
   };
+
+  getUniversitiesForComparison = async (req, res) => {
+    try {
+      const ids = req.params.ids;
+      const data = [MOCK_DATA[0], MOCK_DATA[1]];
+      res.status(200).json({ data: data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
 
 export default UniversityController;

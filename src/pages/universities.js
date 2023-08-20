@@ -76,7 +76,7 @@ const Universities = () => {
 
   const handleComparisonClick = () => {
     const selectedIds = selectedUniversities.map((university) => university.university_id);
-    const comparisonUrl = `/comparison?universityIds=${selectedIds.join(",")}`;
+    const comparisonUrl = `/comparison/${selectedIds.join(",")}`;
     navigate(comparisonUrl);
   };
 

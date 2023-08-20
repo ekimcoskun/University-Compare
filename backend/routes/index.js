@@ -18,6 +18,10 @@ class Routers {
       this.UniversityController.getAllUniversities
     );
     this.router.get(`/university/getById/:id`, this.UniversityController.getUniversityById);
+    this.router.get(
+      `/university/getByIds/:ids`,
+      this.UniversityController.getUniversitiesForComparison
+    );
     this.router.post(`/auth/login`, this.AuthController.authLogin);
     this.router.post(`/auth/refresh`, this.AuthController.getRefreshToken);
     this.router.post(`/user/create`, this.UserController.createUser);

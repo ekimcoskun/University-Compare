@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { getAllUsersRedux } from "../../../store/slice/user/userSlice";
 import DataTable from "react-data-table-component";
+import { EditUser } from "../../modals/EditUser";
+import { deleteUser } from "../../../helpers/userHelper/createEditDeleteUser";
 export default function UserTab() {
   const [perPage, setPerPage] = useState(10);
   const [editUserModal, setEditUserModal] = useState(false);
@@ -109,17 +111,32 @@ export default function UserTab() {
     },
   ];
 
-  useEffect(() => {
-    console.log("12", users);
-  }, [users]);
-
   const handleEditButton = (row) => {
+    console.log(row);
     setEditUserModal(true);
     setSelectedRows(row);
   };
 
-  const deleteHandler = (id) => {
-    console.log(id);
+  const deleteHandler = async (id) => {
+    const response = await deleteUser(id);
+    if (response.status) {
+      Swal.fire({
+        icon: "success",
+        title: "Başarılı",
+        text: "Kullanıcı Silindi",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      dispatch(getAllUsersRedux({ page: 1, size: perPage }));
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Hata",
+        text: "Kullanıcı Silinemedi",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   const handlePerRowsChange = async (newPerPage, page) => {
@@ -161,6 +178,7 @@ export default function UserTab() {
           }}
         />
       </div>
+      <EditUser showModal={editUserModal} setShowModal={setEditUserModal} row={selectedRows} />
     </div>
   );
 }

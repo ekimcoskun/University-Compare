@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUniversities } from "../../../store/slice/university/universitySlice";
 import { CreateUniversity } from "../../modals/CreateUniversity";
 import { EditUniversity } from "../../modals/EditUniversity";
+import { deleteUniversity } from "../../../helpers/universityHelper/createEditDeleteUniversity";
 export default function UniversityTab() {
   const [perPage, setPerPage] = useState(10);
   const [createUniversityModal, setCreateUniversityModal] = useState(false);
@@ -28,8 +29,36 @@ export default function UniversityTab() {
     setSelectedRows(row);
   };
 
-  const deleteHandler = (id) => {
-    console.log(id);
+  const deleteHandler = async (id) => {
+    const response = await deleteUniversity(id);
+    if (response.status) {
+      Swal.fire({
+        title: "Başarılı",
+        text: response.message,
+        icon: "success",
+        showClass: {
+          popup: "animate_animated animate_fadeInDown",
+        },
+        hideClass: {
+          popup: "animate_animated animate_fadeOutUp",
+        },
+        timer: 3000,
+      });
+      dispatch(getAllUniversities({ page: 1, size: perPage }));
+    } else {
+      Swal.fire({
+        title: "Hata",
+        text: response.message,
+        icon: "error",
+        showClass: {
+          popup: "animate_animated animate_fadeInDown",
+        },
+        hideClass: {
+          popup: "animate_animated animate_fadeOutUp",
+        },
+        timer: 3000,
+      });
+    }
   };
   const columns = [
     {
