@@ -3,7 +3,7 @@ import { baseURL } from "../../configurations/environments";
 import { RequestConfig } from "../RequestConfig";
 
 export const createUniversity = async (form) => {
-  let requestURL = baseURL + `/api/v1/customer/campaign`;
+  let requestURL = baseURL + `/api/admin/university/create`;
   let responseResult = {
     status: "",
     message: "",

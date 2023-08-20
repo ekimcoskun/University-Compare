@@ -1,4 +1,6 @@
 import { MOCK_DATA } from "../MOCK_DATA.js";
+import DB from "../repository/db.js";
+const { Universities } = DB;
 class UniversityController {
   constructor() {}
 

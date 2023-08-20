@@ -6,7 +6,7 @@ import { createUniversity } from "../../helpers/universityHelper/createEditDelet
 export const CreateUniversity = ({ showModal, setShowModal }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    university_name: "",
+    name: "",
     city: "",
     logo: "",
   });
@@ -79,7 +79,7 @@ export const CreateUniversity = ({ showModal, setShowModal }) => {
                           <p className="mr-2">Üniversite Adı:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="full_name"
+                            name="name"
                             onChange={handleInputChange}
                           />
                         </div>
@@ -87,7 +87,7 @@ export const CreateUniversity = ({ showModal, setShowModal }) => {
                           <p className="mr-2">Şehir:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="agent"
+                            name="city"
                             onChange={handleInputChange}
                           />
                         </div>
@@ -95,7 +95,7 @@ export const CreateUniversity = ({ showModal, setShowModal }) => {
                           <p className="mr-2">Logo Url:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="height"
+                            name="logo"
                             onChange={handleInputChange}
                           />
                         </div>

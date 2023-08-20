@@ -3,9 +3,9 @@ import DB from "../repository/db.js";
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const { Users } = DB;
+const { Users, Universities } = DB;
 
-class AuthController {
+class AdminController {
   constructor() {}
 
   getUsers = async (req, res) => {
@@ -128,6 +128,21 @@ class AuthController {
       console.log(err);
     }
   };
+
+  createUniversity = async (req, res) => {
+    try {
+      const data = req.body;
+      const university_id = uuidv4();
+      data.university_id = university_id;
+      const response = await Universities.create(data);
+      if (response) {
+        return res.status(200).json({ message: "success" });
+      }
+      return res.status(400).json({ message: "error" });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
 
-export default AuthController;
+export default AdminController;

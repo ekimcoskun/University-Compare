@@ -1,13 +1,13 @@
 import { Router } from "express";
 import UniversityController from "../controllers/UniversityController.js";
 import AuthController from "../controllers/AuthController.js";
-import UserController from "../controllers/UserController.js";
+import AdminController from "../controllers/AdminController.js";
 
 class Routers {
   constructor() {
     this.UniversityController = new UniversityController();
     this.AuthController = new AuthController();
-    this.UserController = new UserController();
+    this.AdminController = new AdminController();
     this.router = Router();
     this.initializeRoutes();
   }
@@ -22,10 +22,11 @@ class Routers {
       `/university/getByIds/:ids`,
       this.UniversityController.getUniversitiesForComparison
     );
+    this.router.post(`/admin/university/create`, this.AdminController.createUniversity);
     this.router.post(`/auth/login`, this.AuthController.authLogin);
     this.router.post(`/auth/refresh`, this.AuthController.getRefreshToken);
-    this.router.post(`/user/create`, this.UserController.createUser);
-    this.router.get(`/user/getAll/:page/:limit/:filter?`, this.UserController.getUsers);
+    this.router.post(`/admin/user/create`, this.AdminController.createUser);
+    this.router.get(`/admin/user/getAll/:page/:limit/:filter?`, this.AdminController.getUsers);
   }
 }
 
