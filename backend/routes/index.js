@@ -17,16 +17,25 @@ class Routers {
       `/university/getAll/:page/:limit/:filter?`,
       this.UniversityController.getAllUniversities
     );
-    this.router.get(`/university/getById/:id`, this.UniversityController.getUniversityById);
+    this.router.get(
+      `/university/getById/:id`,
+      this.UniversityController.getUniversityById
+    );
     this.router.get(
       `/university/getByIds/:ids`,
       this.UniversityController.getUniversitiesForComparison
     );
-    this.router.post(`/admin/university/create`, this.AdminController.createUniversity);
+    this.router.post(
+      `/admin/university/create`,
+      this.AdminController.createUniversity
+    );
     this.router.post(`/auth/login`, this.AuthController.authLogin);
     this.router.post(`/auth/refresh`, this.AuthController.getRefreshToken);
     this.router.post(`/admin/user/create`, this.AdminController.createUser);
-    this.router.get(`/admin/user/getAll/:page/:limit/:filter?`, this.AdminController.getUsers);
+    this.router.get(
+      `/admin/user/getAll/:page/:limit/:filter?`,
+      this.AdminController.getUsers
+    );
   }
 }
 

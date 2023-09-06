@@ -15,13 +15,22 @@ const initialState = {
     user: [],
   },
 };
-export const getAllUsersRedux = createAsyncThunk("users/getAllUserss", async (props) => {
-  const { page, size } = props;
-  const response = await axios.get(`${baseURL}/api/user/getAll/${page}/${size}`, RequestConfig());
-  return response.data;
-});
+export const getAllUsersRedux = createAsyncThunk(
+  "users/getAllUserss",
+  async (props) => {
+    const { page, size } = props;
+    const response = await axios.get(
+      `${baseURL}/api/admin/user/getAll/${page}/${size}`,
+      RequestConfig()
+    );
+    return response.data;
+  }
+);
 export const getUserById = createAsyncThunk("users/getById", async (id) => {
-  const response = await axios.get(`${baseURL}/api/admin/user/${id}`, RequestConfig());
+  const response = await axios.get(
+    `${baseURL}/api/admin/user/${id}`,
+    RequestConfig()
+  );
   return response.data;
 });
 export const getUsersSlice = createSlice({
@@ -36,7 +45,8 @@ export const getUsersSlice = createSlice({
       .addCase(getAllUsersRedux.fulfilled, (state, action) => {
         state.usersState.status = false;
         state.usersState.users = action.payload.data && action.payload.data;
-        state.usersState.message = action.payload.message && action.payload.message;
+        state.usersState.message =
+          action.payload.message && action.payload.message;
         state.usersState.totalRows = action.payload.pagination.totalRecords;
       })
       .addCase(getAllUsersRedux.rejected, (state, action) => {

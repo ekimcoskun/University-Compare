@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { RingLoader } from "react-spinners";
-import { updateUniversity } from "../../helpers/universityHelper/createEditDeleteUniversity";
 import { updateUser } from "../../helpers/userHelper/createEditDeleteUser";
 
 export const EditUser = ({ showModal, setShowModal, row }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    role: "",
-    isAdmin: "",
+    first_name: row.first_name,
+    last_name: row.last_name,
+    email: row.email,
+    role: row.role,
+    isAdmin: row.isAdmin,
   });
 
   const handleInputChange = (e) => {
@@ -82,8 +81,8 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                           <p className="mr-2">Adı:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="full_name"
-                            value={row.first_name}
+                            name="first_name"
+                            value={formData.first_name}
                             onChange={handleInputChange}
                           />
                         </div>
@@ -91,8 +90,8 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                           <p className="mr-2">Soyadı:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="agent"
-                            value={row.last_name}
+                            name="last_name"
+                            value={formData.last_name}
                             onChange={handleInputChange}
                           />
                         </div>
@@ -100,8 +99,8 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                           <p className="mr-2">Email:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="height"
-                            value={row.email}
+                            name="email"
+                            value={formData.email}
                             onChange={handleInputChange}
                           />
                         </div>
@@ -109,8 +108,8 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                           <p className="mr-2">Kullanıcı Rolü:</p>
                           <input
                             className="border rounded px-2 py-1"
-                            name="height"
-                            value={row.role}
+                            name="role"
+                            value={formData.role}
                             onChange={handleInputChange}
                           />
                         </div>
@@ -122,7 +121,7 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                             id="isAdmin"
                             name="isAdmin"
                             className="border rounded px-2 py-1"
-                            value={row.isAdmin}
+                            value={formData.isAdmin}
                             onChange={handleInputChange}
                           >
                             <option value={true}>Evet</option>
@@ -137,6 +136,7 @@ export const EditUser = ({ showModal, setShowModal, row }) => {
                           {loading && (
                             <div className="flex items-center justify-center">
                               <RingLoader color="white" size={25} />
+                              &nbsp; Kaydediliyor...
                             </div>
                           )}
                           {!loading && "Kaydet"}

@@ -71,7 +71,8 @@ class AdminController {
 
   createUser = async (req, res) => {
     try {
-      const { email, password, first_name, last_name, university_id } = req.body;
+      const { email, password, first_name, last_name, university_id } =
+        req.body;
       console.log(req.body);
       if (!(email && password && first_name && last_name)) {
         return res.status(400).json({ message: "Missing fields" });

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginReq } from "../../helpers/LoginReq";
+import { signupReq } from "../../helpers/LoginReq";
 import Swal from "sweetalert2";
 
 const Signup = () => {
@@ -14,16 +14,19 @@ const Signup = () => {
     e.preventDefault();
     if (name && surname && mail && password) {
       let form = {
-        Name: name,
-        Surname: surname,
-        Email: mail,
-        Password: password,
+        first_name: name,
+        last_name: surname,
+        email: mail,
+        password: password,
       };
-      let response = await LoginReq(form);
+      let response = await signupReq(form);
       if (response.status) {
         window.localStorage.setItem("token", response.data.token);
-        window.localStorage.setItem("refresh_token", response.data.refreshToken);
-        navigate("/");
+        window.localStorage.setItem(
+          "refresh_token",
+          response.data.refreshToken
+        );
+        navigate("/login");
       } else {
         Swal.fire({
           title: "Hata",
@@ -56,7 +59,10 @@ const Signup = () => {
         <div className="mt-10">
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col mb-6">
-              <label htmlFor="name" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">
+              <label
+                htmlFor="name"
+                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+              >
                 İsim:
               </label>
               <div className="relative">

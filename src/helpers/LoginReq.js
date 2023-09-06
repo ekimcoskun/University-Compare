@@ -13,7 +13,8 @@ export const LoginReq = async (form) => {
     .then((response) => {
       responseResult = {
         status: true,
-        message: response.data && response.data.message && response.data.message,
+        message:
+          response.data && response.data.message && response.data.message,
         data: response?.data,
       };
     })
@@ -41,7 +42,8 @@ export const changePasswordReq = async (form) => {
     .then((response) => {
       responseResult = {
         status: true,
-        message: response.data && response.data.message && response.data.message,
+        message:
+          response.data && response.data.message && response.data.message,
         data: response.data && response.data.data && response.data.data,
       };
     })
@@ -59,7 +61,7 @@ export const changePasswordReq = async (form) => {
 };
 
 export const signupReq = async (form) => {
-  let requestURL = baseURL + `/api/auth/signup`;
+  let requestURL = baseURL + `/api/admin/user/create`;
   let responseResult = {
     status: "",
     message: "",
@@ -69,7 +71,8 @@ export const signupReq = async (form) => {
     .then((response) => {
       responseResult = {
         status: true,
-        message: response.data && response.data.message && response.data.message,
+        message:
+          response.data && response.data.message && response.data.message,
         data: response?.data,
       };
     })
