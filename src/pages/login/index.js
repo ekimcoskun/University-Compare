@@ -16,10 +16,12 @@ const Login = () => {
         password: password,
       };
       let response = await LoginReq(form);
-      console.log(response);
       if (response.status) {
         window.localStorage.setItem("token", response.data.token);
-        window.localStorage.setItem("refresh_token", response.data.refreshToken);
+        window.localStorage.setItem(
+          "refresh_token",
+          response.data.refreshToken
+        );
         navigate("/");
       } else {
         Swal.fire({
