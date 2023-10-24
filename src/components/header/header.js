@@ -29,32 +29,47 @@ export default function Header({ user }) {
     <div className="bg-slate-700">
       <div className="flex items-center">
         <Link to="/">
-          <img className="p-4 rounded-full" width={100} height={100} src={Logo} />
+          <img
+            className="p-4 rounded-full"
+            width={100}
+            height={100}
+            src={Logo}
+          />
         </Link>
         <div className="flex items-center ml-5">
           <Link to="/universities" className="link">
-            <p className="link text-white text-3xl font-semibold">Üniversiteler</p>
+            <p className="link text-white text-3xl font-semibold">
+              Üniversiteler
+            </p>
           </Link>
         </div>
-        <div className="ml-auto flex items-center">
+        <div className="ml-auto flex items-center mr-5">
           {user?.isAdmin && (
             <Link to="/edit" className="link">
-              <p className="link ml-6 text-white text-3xl font-semibold">Düzenle</p>
+              <p className="link ml-6 text-white text-3xl font-semibold">
+                Düzenle
+              </p>
             </Link>
           )}
           {!user ? (
             <>
               <Link to="/login" className="link">
-                <p className="link ml-6 text-white text-3xl font-semibold">Giriş Yap</p>
+                <p className="link ml-6 text-white text-3xl font-semibold">
+                  Giriş Yap
+                </p>
               </Link>
               <Link to="/signup" className="link">
-                <p className="link ml-6 text-white text-3xl font-semibold">Kayıt Ol</p>
+                <p className="link ml-6 text-white text-3xl font-semibold">
+                  Kayıt Ol
+                </p>
               </Link>
             </>
           ) : (
             <div className="relative inline-block text-left">
               <span className="cursor-pointer" onClick={handleDropdownToggle}>
-                <p className="link ml-6 text-white text-3xl font-semibold">{user.email}</p>
+                <p className="link ml-6 text-white text-3xl font-semibold">
+                  {user.email}
+                </p>
               </span>
               {isDropdownOpen && (
                 <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
