@@ -6,7 +6,7 @@ import { updateUniversity } from "../../helpers/universityHelper/createEditDelet
 export const EditUniversity = ({ showModal, setShowModal, row }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    university_name: "",
+    name: "",
     city: "",
     logo: "",
   });
@@ -62,7 +62,9 @@ export const EditUniversity = ({ showModal, setShowModal, row }) => {
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
                 <div className="border-2 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                    <h3 className="text-xl font-semibold">Üniversite Düzenle</h3>
+                    <h3 className="text-xl font-semibold">
+                      Üniversite Düzenle
+                    </h3>
                     <button
                       className="pl-10 ml-auto bg-transparent border-0 text-black text-3xl leading-none font-semibold outline-none focus:outline-none"
                       onClick={() => setShowModal(false)}
@@ -80,7 +82,7 @@ export const EditUniversity = ({ showModal, setShowModal, row }) => {
                           <input
                             className="border rounded px-2 py-1"
                             name="full_name"
-                            value={row.university_name}
+                            value={row.name}
                             onChange={handleInputChange}
                           />
                         </div>

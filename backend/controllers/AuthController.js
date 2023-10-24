@@ -1,6 +1,10 @@
 import jwt from "jsonwebtoken";
 import "dotenv/config";
-import { verifyToken, generateAccessToken, generateRefreshToken } from "../helpers/verifyToken.js";
+import {
+  verifyToken,
+  generateAccessToken,
+  generateRefreshToken,
+} from "../helpers/verifyToken.js";
 import bcrypt from "bcrypt";
 import DB from "../repository/db.js";
 const { Users } = DB;
@@ -20,7 +24,12 @@ class AuthController {
         const refreshToken = generateRefreshToken(user);
 
         // BURADA REFRESH TOKEN DBYE KAYDEDİLECEK
-        res.json({ email: user.email, password: user.password, token: accessToken, refreshToken });
+        res.json({
+          email: user.email,
+          password: user.password,
+          token: accessToken,
+          refreshToken,
+        });
       } else {
         res.status(400).json({ message: "Email or password is incorrect" });
       }
@@ -32,7 +41,8 @@ class AuthController {
   getRefreshToken = async (req, res) => {
     try {
       const refreshToken = req.body.token;
-      if (!refreshToken) return res.status(401).json({ message: "User not authenticated" });
+      if (!refreshToken)
+        return res.status(401).json({ message: "User not authenticated" });
       // BURADA DB'DEN REFRESH TOKEN KONTROL EDİLECEK YOKSA 403 DÖNECEK
       jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
         err && console.log(err);
@@ -43,7 +53,9 @@ class AuthController {
         const newRefreshToken = generateRefreshToken(user);
 
         // BURADA YENİ REFRESH TOKEN DBYE KAYDEDİLECEK
-        res.status(200).json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
+        res
+          .status(200)
+          .json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
       });
     } catch (err) {
       console.log(err);

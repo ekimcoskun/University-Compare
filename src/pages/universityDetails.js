@@ -7,7 +7,9 @@ import { useParams } from "react-router-dom";
 export default function UniversityDetails() {
   const dispatch = useDispatch();
   const params = useParams();
-  const university = useSelector((state) => state.universitySlice.universityByIdState.university);
+  const university = useSelector(
+    (state) => state.universitySlice.universityByIdState.university
+  );
 
   useEffect(() => {
     dispatch(getUniversityById(params.id));
@@ -23,7 +25,7 @@ export default function UniversityDetails() {
           <img className="rounded-full" src={university.logo} />
         </div>
         <div className="ml-4">
-          <p className="text-white text-3xl">{university.university_name}</p>
+          <p className="text-white text-3xl">{university.name}</p>
           <p className="text-white text-2xl">{university.city}</p>
         </div>
       </div>

@@ -16,11 +16,15 @@ const Universities = () => {
   const [selectedUniversities, setSelectedUniversities] = useState([]);
   const [isPrevPage, setIsPrevPage] = useState(false);
   const [filter, setFilter] = useState("");
-  const universities = useSelector((state) => state.universitySlice.universityState.universities);
+  const universities = useSelector(
+    (state) => state.universitySlice.universityState.universities
+  );
   const totalRecords = useSelector(
     (state) => state.universitySlice.universityState.pagination.totalRecords
   );
-  const loading = useSelector((state) => state.universitySlice.universityState.status);
+  const loading = useSelector(
+    (state) => state.universitySlice.universityState.status
+  );
 
   useEffect(() => {
     dispatch(getAllUniversities({ page: 1, size: perPage, filter }));
@@ -75,7 +79,9 @@ const Universities = () => {
   }, [selectedUniversities]);
 
   const handleComparisonClick = () => {
-    const selectedIds = selectedUniversities.map((university) => university.university_id);
+    const selectedIds = selectedUniversities.map(
+      (university) => university.university_id
+    );
     const comparisonUrl = `/comparison/${selectedIds.join(",")}`;
     navigate(comparisonUrl);
   };
@@ -84,7 +90,9 @@ const Universities = () => {
     <div>
       <div className="container mx-auto">
         <div className="py-8">
-          <p className="text-white text-2xl font-semibold mb-4">Üniversiteler</p>
+          <p className="text-white text-2xl font-semibold mb-4">
+            Üniversiteler
+          </p>
           <DebounceTextInput
             placeHolder="Üniversite Ara..."
             onChange={(value) => handleFilterChange(value)}
@@ -107,7 +115,9 @@ const Universities = () => {
                 />
               ))
             ) : (
-              <p className="text-white text-xl font-semibold mb-4">No universities found.</p>
+              <p className="text-white text-xl font-semibold mb-4">
+                No universities found.
+              </p>
             )}
           </div>
         )}
@@ -133,19 +143,24 @@ const Universities = () => {
           <div className="relative">
             {selectedUniversities.length > 0 && (
               <div className="p-4 md:p-6">
-                <h2 className="text-xl font-semibold mb-4">Selected Universities</h2>
+                <h2 className="text-xl font-semibold mb-4">
+                  Selected Universities
+                </h2>
                 <div className="flex flex-row gap-2 md:gap-4 overflow-x-auto">
                   {selectedUniversities.map((university, index) => (
-                    <div key={index} className="flex flex-col items-center text-center">
+                    <div
+                      key={index}
+                      className="flex flex-col items-center text-center"
+                    >
                       <img
                         src={university.logo}
-                        alt={`${university.university_name} Logo`}
+                        alt={`${university.name} Logo`}
                         className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
                       />
                       <p className="text-gray-600 mt-2">
-                        {university.university_name.length > 20
-                          ? `${university.university_name.substring(0, 20)}...`
-                          : university.university_name}
+                        {university.name.length > 20
+                          ? `${university.name.substring(0, 20)}...`
+                          : university.name}
                       </p>
                     </div>
                   ))}

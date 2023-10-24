@@ -9,7 +9,7 @@ export default function Comparison() {
   const universities = useSelector(
     (state) => state.universitySlice.universitiesForComparisonState.universities
   );
-  const features = ["university_name", "city", "logo"];
+  const features = ["name", "city", "logo"];
 
   useEffect(() => {
     dispatch(getUniveritiesForComparison({ ids: params.universityIds }));
@@ -37,16 +37,18 @@ export default function Comparison() {
               {universities.map((university, index) => (
                 <tr key={index} className="border-b border-gray-300">
                   <td className="py-4 px-4">
-                    <div className="font-semibold">{university.university_name}</div>
+                    <div className="font-semibold">{university.name}</div>
                   </td>
                   <td className="py-4 px-4">
-                    <div className="text-gray-500 overflow-hidden truncate">{university.city}</div>
+                    <div className="text-gray-500 overflow-hidden truncate">
+                      {university.city}
+                    </div>
                   </td>
                   <td className="py-4 px-4">
                     <div className="flex items-center">
                       <img
                         src={university.logo}
-                        alt={university.university_name}
+                        alt={university.name}
                         className="h-16 w-16 rounded"
                       />
                     </div>

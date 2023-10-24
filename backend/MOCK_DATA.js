@@ -1,7 +1,7 @@
 export const MOCK_DATA = [
   {
     id: 1,
-    university_name: "Algonquin College",
+    name: "Algonquin College",
     city: "Otrokovice",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -10,7 +10,7 @@ export const MOCK_DATA = [
   },
   {
     id: 2,
-    university_name: "Ferdowsi University of Mashhad",
+    name: "Ferdowsi University of Mashhad",
     city: "Qal‘at Bīshah",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -19,7 +19,7 @@ export const MOCK_DATA = [
   },
   {
     id: 3,
-    university_name: "Bethel College Newton",
+    name: "Bethel College Newton",
     city: "Turgenevo",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -28,7 +28,7 @@ export const MOCK_DATA = [
   },
   {
     id: 4,
-    university_name: "International Blacksea University",
+    name: "International Blacksea University",
     city: "Kiruna",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -37,7 +37,7 @@ export const MOCK_DATA = [
   },
   {
     id: 5,
-    university_name: "Monmouth University",
+    name: "Monmouth University",
     city: "Idrinskoye",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -46,7 +46,7 @@ export const MOCK_DATA = [
   },
   {
     id: 6,
-    university_name: "Cambridge College",
+    name: "Cambridge College",
     city: "Karangampel",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -55,7 +55,7 @@ export const MOCK_DATA = [
   },
   {
     id: 7,
-    university_name: "Texas College of Osteopathic Medicine",
+    name: "Texas College of Osteopathic Medicine",
     city: "Ibiá",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -64,7 +64,7 @@ export const MOCK_DATA = [
   },
   {
     id: 8,
-    university_name: "York University",
+    name: "York University",
     city: "Hoçisht",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -73,7 +73,7 @@ export const MOCK_DATA = [
   },
   {
     id: 9,
-    university_name: "College of Aeronautics",
+    name: "College of Aeronautics",
     city: "Poljčane",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -82,7 +82,7 @@ export const MOCK_DATA = [
   },
   {
     id: 10,
-    university_name: "Phranakhon Si Ayutthaya Rajabhat University",
+    name: "Phranakhon Si Ayutthaya Rajabhat University",
     city: "Kotlovka",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -91,7 +91,7 @@ export const MOCK_DATA = [
   },
   {
     id: 11,
-    university_name: "Aleksander Gieysztor School of Humanities in Pultusk",
+    name: "Aleksander Gieysztor School of Humanities in Pultusk",
     city: "Dacun",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -100,7 +100,7 @@ export const MOCK_DATA = [
   },
   {
     id: 12,
-    university_name: "Universitas Dian Nuswantoro",
+    name: "Universitas Dian Nuswantoro",
     city: "Paris 13",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -109,7 +109,7 @@ export const MOCK_DATA = [
   },
   {
     id: 13,
-    university_name: 'South-West University "Neofit Rilski"',
+    name: 'South-West University "Neofit Rilski"',
     city: "Khemarat",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -118,7 +118,7 @@ export const MOCK_DATA = [
   },
   {
     id: 14,
-    university_name: "International School of Business Management",
+    name: "International School of Business Management",
     city: "Tarnowiec",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -127,15 +127,16 @@ export const MOCK_DATA = [
   },
   {
     id: 15,
-    university_name: "Victoria University of Wellington",
+    name: "Victoria University of Wellington",
     city: "Apucarana",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
-    website: "https://techcrunch.com/aliquet/maecenas/leo/odio/condimentum/id.js?sollicitudin=in",
+    website:
+      "https://techcrunch.com/aliquet/maecenas/leo/odio/condimentum/id.js?sollicitudin=in",
     university_id: "c33a59c3-cd39-41af-aca9-0ab726bfbca5",
   },
   {
     id: 16,
-    university_name: 'Universidad Nacional Experimental Sur del Lago "Jesús Maria Semprum"',
+    name: 'Universidad Nacional Experimental Sur del Lago "Jesús Maria Semprum"',
     city: "Cinunjang",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -144,7 +145,7 @@ export const MOCK_DATA = [
   },
   {
     id: 17,
-    university_name: "Singapore Institute of Management (SIM)",
+    name: "Singapore Institute of Management (SIM)",
     city: "Täby",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -153,7 +154,7 @@ export const MOCK_DATA = [
   },
   {
     id: 18,
-    university_name: "Tianjin University of Technology",
+    name: "Tianjin University of Technology",
     city: "Monterrey",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -162,7 +163,7 @@ export const MOCK_DATA = [
   },
   {
     id: 19,
-    university_name: "Florida International University",
+    name: "Florida International University",
     city: "Jishan",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -171,7 +172,7 @@ export const MOCK_DATA = [
   },
   {
     id: 20,
-    university_name: "Valley Forge Christian College",
+    name: "Valley Forge Christian College",
     city: "Shifang",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -180,7 +181,7 @@ export const MOCK_DATA = [
   },
   {
     id: 21,
-    university_name: "Thaksin University",
+    name: "Thaksin University",
     city: "Sunzhuang",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -189,7 +190,7 @@ export const MOCK_DATA = [
   },
   {
     id: 22,
-    university_name: "Universitas Pattimura",
+    name: "Universitas Pattimura",
     city: "Baytīn",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -198,7 +199,7 @@ export const MOCK_DATA = [
   },
   {
     id: 23,
-    university_name: "Louisiana State University and Agricultural and Mechanical College",
+    name: "Louisiana State University and Agricultural and Mechanical College",
     city: "Purworejo",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -207,7 +208,7 @@ export const MOCK_DATA = [
   },
   {
     id: 24,
-    university_name: "Technological University (Banmaw)",
+    name: "Technological University (Banmaw)",
     city: "Shuangxi",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -216,7 +217,7 @@ export const MOCK_DATA = [
   },
   {
     id: 25,
-    university_name: "Université de Cergy-Pontoise",
+    name: "Université de Cergy-Pontoise",
     city: "Diapaga",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -225,7 +226,7 @@ export const MOCK_DATA = [
   },
   {
     id: 26,
-    university_name: "Jingdezhen China Institute",
+    name: "Jingdezhen China Institute",
     city: "Nueva Italia",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -234,7 +235,7 @@ export const MOCK_DATA = [
   },
   {
     id: 27,
-    university_name: "Temple University School of Podiatric Medicine",
+    name: "Temple University School of Podiatric Medicine",
     city: "Mensalong",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -243,7 +244,7 @@ export const MOCK_DATA = [
   },
   {
     id: 28,
-    university_name: "Crown College",
+    name: "Crown College",
     city: "Guiniculalay",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -252,7 +253,7 @@ export const MOCK_DATA = [
   },
   {
     id: 29,
-    university_name: "Holy Family College",
+    name: "Holy Family College",
     city: "Berezayka",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -261,7 +262,7 @@ export const MOCK_DATA = [
   },
   {
     id: 30,
-    university_name: "Universidad Autónoma de Madrid",
+    name: "Universidad Autónoma de Madrid",
     city: "An Lão",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -270,7 +271,7 @@ export const MOCK_DATA = [
   },
   {
     id: 31,
-    university_name: "Zhejiang University of Technology",
+    name: "Zhejiang University of Technology",
     city: "Las Lomas",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -279,7 +280,7 @@ export const MOCK_DATA = [
   },
   {
     id: 32,
-    university_name: "Technological Education Institute of Athens",
+    name: "Technological Education Institute of Athens",
     city: "Tysmenytsya",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -288,7 +289,7 @@ export const MOCK_DATA = [
   },
   {
     id: 33,
-    university_name: "Ecole Polytechnique Marseille",
+    name: "Ecole Polytechnique Marseille",
     city: "Emmaboda",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -297,7 +298,7 @@ export const MOCK_DATA = [
   },
   {
     id: 34,
-    university_name: "Jacobs University Bremen",
+    name: "Jacobs University Bremen",
     city: "Barisan",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -306,7 +307,7 @@ export const MOCK_DATA = [
   },
   {
     id: 35,
-    university_name: "Concordia University, River Forest",
+    name: "Concordia University, River Forest",
     city: "Tamisan",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -315,7 +316,7 @@ export const MOCK_DATA = [
   },
   {
     id: 36,
-    university_name: "National Law School of India University",
+    name: "National Law School of India University",
     city: "Ikang",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -324,7 +325,7 @@ export const MOCK_DATA = [
   },
   {
     id: 37,
-    university_name: "Northeast Forest University",
+    name: "Northeast Forest University",
     city: "Guazhou",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -333,7 +334,7 @@ export const MOCK_DATA = [
   },
   {
     id: 38,
-    university_name: "Symbiosis International University",
+    name: "Symbiosis International University",
     city: "Kanye",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -342,7 +343,7 @@ export const MOCK_DATA = [
   },
   {
     id: 39,
-    university_name: "Vellore Institute of Technology",
+    name: "Vellore Institute of Technology",
     city: "Chocianów",
     logo: "http://dummyimage.com/150x150.png/dddddd/000000",
     website:
@@ -351,7 +352,7 @@ export const MOCK_DATA = [
   },
   {
     id: 40,
-    university_name: "Novosibirsk State Agricultural University",
+    name: "Novosibirsk State Agricultural University",
     city: "Qilin",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -360,7 +361,7 @@ export const MOCK_DATA = [
   },
   {
     id: 41,
-    university_name: "University of Ottawa",
+    name: "University of Ottawa",
     city: "Betzdorf",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:
@@ -369,7 +370,7 @@ export const MOCK_DATA = [
   },
   {
     id: 42,
-    university_name: "Khana-e-Noor Institute of Higher Education",
+    name: "Khana-e-Noor Institute of Higher Education",
     city: "Xin’an",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -378,7 +379,7 @@ export const MOCK_DATA = [
   },
   {
     id: 43,
-    university_name: "European Carolus Magnus University",
+    name: "European Carolus Magnus University",
     city: "Tagum",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -387,7 +388,7 @@ export const MOCK_DATA = [
   },
   {
     id: 44,
-    university_name: "Yerevan State Medical University",
+    name: "Yerevan State Medical University",
     city: "Jinggan",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -396,7 +397,7 @@ export const MOCK_DATA = [
   },
   {
     id: 45,
-    university_name: "Azerbaijan Toursim Institute",
+    name: "Azerbaijan Toursim Institute",
     city: "Adela",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -405,7 +406,7 @@ export const MOCK_DATA = [
   },
   {
     id: 46,
-    university_name: "King's College",
+    name: "King's College",
     city: "Buriti Alegre",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -414,7 +415,7 @@ export const MOCK_DATA = [
   },
   {
     id: 47,
-    university_name: "Universidade Nova de Lisboa",
+    name: "Universidade Nova de Lisboa",
     city: "Andoany",
     logo: "http://dummyimage.com/150x150.png/ff4444/ffffff",
     website:
@@ -423,7 +424,7 @@ export const MOCK_DATA = [
   },
   {
     id: 48,
-    university_name: "Universität Fridericana Karlsruhe (Technische Hochschule)",
+    name: "Universität Fridericana Karlsruhe (Technische Hochschule)",
     city: "Ban Nong Wua So",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -432,7 +433,7 @@ export const MOCK_DATA = [
   },
   {
     id: 49,
-    university_name: "Universidad Bolivariana de Venezuela",
+    name: "Universidad Bolivariana de Venezuela",
     city: "Micheng",
     logo: "http://dummyimage.com/150x150.png/cc0000/ffffff",
     website:
@@ -441,7 +442,7 @@ export const MOCK_DATA = [
   },
   {
     id: 50,
-    university_name: "Universidad para la Cooperación Internacional",
+    name: "Universidad para la Cooperación Internacional",
     city: "Washington",
     logo: "http://dummyimage.com/150x150.png/5fa2dd/ffffff",
     website:

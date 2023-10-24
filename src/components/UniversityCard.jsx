@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const UniversityCard = ({ university, onUniversitySelect }) => {
-  const { university_id, university_name, city, logo } = university;
+  const { university_id, name, city, logo } = university;
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 w-full flex flex-col items-center relative">
@@ -13,9 +13,9 @@ const UniversityCard = ({ university, onUniversitySelect }) => {
         +
       </button>
       <div className="flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
-        <img src={logo} alt={university_name} className="object-contain rounded-full" />
+        <img src={logo} alt={name} className="object-contain rounded-full" />
       </div>
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">{university_name}</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">{name}</h3>
       <p className="text-gray-600 mb-2">Şehir: {city}</p>
       <div className="mt-4 border-t border-gray-200 pt-4 text-center">
         <Link
