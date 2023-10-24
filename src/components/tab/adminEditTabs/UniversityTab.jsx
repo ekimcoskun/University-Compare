@@ -168,7 +168,6 @@ export default function UniversityTab() {
           placeHolder="Üniversite Ara..."
           onChange={(value) => handleFilterChange(value)}
           delay={1000}
-          minLetter={3}
         />
         <div>
           <button

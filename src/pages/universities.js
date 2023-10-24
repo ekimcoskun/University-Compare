@@ -97,7 +97,6 @@ const Universities = () => {
             placeHolder="Üniversite Ara..."
             onChange={(value) => handleFilterChange(value)}
             delay={1000}
-            minLetter={3}
           />
         </div>
         {loading ? (
