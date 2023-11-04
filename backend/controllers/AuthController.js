@@ -1,16 +1,13 @@
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import {
-  verifyToken,
   generateAccessToken,
   generateRefreshToken,
-} from "../helpers/verifyToken.js";
+} from "../helpers/generateToken.js";
 import bcrypt from "bcrypt";
 import DB from "../repository/db.js";
 const { Users } = DB;
 class AuthController {
-  constructor() {}
-
   authLogin = async (req, res) => {
     try {
       const { email, password } = req.body;

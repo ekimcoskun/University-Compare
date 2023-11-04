@@ -11,7 +11,7 @@ class UniversityController {
       const page = parseInt(req.params.page) || 1;
       const limit = parseInt(req.params.limit) || 10;
       const filter = req.params.filter || "";
-      console.log(page * limit);
+
       const universities = await Universities.findAll({
         where: {
           name: {
@@ -20,7 +20,6 @@ class UniversityController {
         },
         limit: limit,
       });
-      console.log(universities);
       const data = {
         message: "Success",
         status: true,

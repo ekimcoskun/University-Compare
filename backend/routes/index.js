@@ -1,10 +1,8 @@
 import { Router } from "express";
-import UniversityController from "../controllers/UniversityController.js";
-import AuthController from "../controllers/AuthController.js";
-import AdminController from "../controllers/AdminController.js";
 import UniversityRouter from "./universityRouter.js";
 import AdminRouter from "./adminRouter.js";
 import AuthRouter from "./authRouter.js";
+import { adminValidation } from "../middlewares/adminValidation.js";
 
 class Routers {
   constructor() {
@@ -17,7 +15,7 @@ class Routers {
 
   initializeRoutes() {
     this.router.use("/university", this.universityRouter.router);
-    this.router.use("/admin", this.adminRouter.router);
+    this.router.use("/admin", adminValidation, this.adminRouter.router);
     this.router.use("/auth", this.authRouter.router);
   }
 }
