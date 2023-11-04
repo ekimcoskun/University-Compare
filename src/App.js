@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
-import { useEffect, useState, lazy } from "react";
+import { useEffect, lazy } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
 import { PrivateRoutes } from "./routers/PrivateRoutes";
@@ -20,6 +20,7 @@ function App() {
         dispatch(userInfo(decodedToken));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

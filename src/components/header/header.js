@@ -29,6 +29,7 @@ export default function Header({ user }) {
     <div className="bg-slate-700">
       <div className="flex items-center">
         <Link to="/">
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <img
             className="p-4 rounded-full"
             width={100}

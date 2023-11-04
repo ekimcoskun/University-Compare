@@ -1,15 +1,14 @@
 import Axios from "axios";
-import { baseURL } from "./configurations/environment";
+import { baseURL } from "./configurations/environments";
 import Swal from "sweetalert2";
 
-// Bu değişken, refreshToken isteği yapılırken, kullanıcının yönlendirilmemesi için kullanılacak
 let isRefreshing = false;
 
-// Bu değişken, refreshToken isteği beklerken, 401 durum kodu alan istekleri tutacak
 let failedRequests = [];
 
 // AccessTokenInterceptor
-export default (props) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default () => {
   Axios.interceptors.response.use(
     (res) => {
       return res;
@@ -19,31 +18,24 @@ export default (props) => {
       if (err.response) {
         // Access Token was expired
         if (err.response.status === 401 && !originalConfig._retry) {
-          // Eğer refreshToken isteği yapılmıyorsa veya beklenmiyorsa, yeni bir refreshToken isteği yapın.
           if (!isRefreshing) {
             isRefreshing = true;
             try {
-              // refreshToken isteği yapın ve yeni access_token alın
               const refreshToken = localStorage.getItem("refresh_token");
               const newTokenRes = await Axios.post(
                 baseURL + `/api/v1/auth/refreshtoken`,
                 { RefreshToken: refreshToken }
               );
               if (newTokenRes.status) {
-                // Yeni access_token localStorage'a kaydedin
                 localStorage.setItem("token", newTokenRes.data.data.token);
                 localStorage.setItem(
                   "refresh_token",
                   newTokenRes.data.data.refreshToken
                 );
-
-                // Yapılmayan diğer istekleri başlatın
                 failedRequests.length > 0 &&
                   failedRequests.forEach((request) => request());
                 failedRequests = [];
               } else {
-                // Eğer refreshToken isteği başarısız olursa, kullanıcıyı yeniden yönlendirin.
-
                 Swal.fire({
                   title: "Hata",
                   text: "Yetkisiz giriş yaptınız! Lütfen tekrar giriş yapın",
@@ -69,7 +61,6 @@ export default (props) => {
             }
           }
 
-          // Bu istekler refreshToken isteği beklerken hata alabilirler. Bu istekleri failedRequests listesine ekleyin.
           const retryOriginalRequest = new Promise((resolve) => {
             failedRequests.push(() => {
               originalConfig.headers["Authorization"] =
@@ -80,7 +71,7 @@ export default (props) => {
 
           return retryOriginalRequest;
         } else if (err.response.status === 403 && !originalConfig._retry) {
-          window.location = "/error";
+          window.location = "/login";
         }
       }
       return Promise.reject(err);

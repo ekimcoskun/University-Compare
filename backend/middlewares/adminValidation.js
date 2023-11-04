@@ -11,7 +11,7 @@ export const adminValidation = (req, res, next) => {
       }
       console.log("next", user);
       const userDB = await Users.findOne({ where: { email: user.email } });
-      if (!(userDB || userDB.isAdmin || user?.isAdmin)) {
+      if (userDB || userDB.isAdmin || user?.isAdmin) {
         return res.status(403).json({ message: "Forbidden" });
       }
       req.user = user;

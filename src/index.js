@@ -5,8 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./store/app/store";
+import AxiosAuthController from "./AxiosAuthController";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+AxiosAuthController();
 root.render(
   <Provider store={store}>
     <App />
