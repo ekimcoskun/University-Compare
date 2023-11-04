@@ -28,13 +28,19 @@ npm install
 
 Environment folder must contain these variables below.
 
-JWT_SECRET=....SECRET_KEY**
-JWT_REFRESH_SECRET=....REFRESH_KEY**
-DB_NAME=...university_app**
-DB_USERNAME=...username**
-DB_PASSWORD=...password**
-DB_HOST=...host**
-DB_PORT=...port\_\_
+JWT_SECRET=....SECRET_KEY
+
+JWT_REFRESH_SECRET=....REFRESH_KEY
+
+DB_NAME=...university_app
+
+DB_USERNAME=...username
+
+DB_PASSWORD=...password
+
+DB_HOST=...host
+
+DB_PORT=...port
 
 # Start the server
 
