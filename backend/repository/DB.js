@@ -100,7 +100,9 @@ export const Methods = {
           });
           const newDomain = newsplitted.join(".");
           console.log("NEW DOMAIN: ", newDomain);
-          let listData = await model.findOne({ where: { store_url: newDomain } });
+          let listData = await model.findOne({
+            where: { store_url: newDomain },
+          });
           console.log("LIST DATA: ", listData);
           if (!listData) {
             listData = await model.findOne({ where: { store_url: domain } });

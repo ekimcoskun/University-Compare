@@ -21,6 +21,7 @@ class UniversityRouter {
       `/getByIds/:ids`,
       this.UniversityController.getUniversitiesForComparison
     );
+    this.router.get(`/count`, this.UniversityController.countUniversities);
   }
 }
 

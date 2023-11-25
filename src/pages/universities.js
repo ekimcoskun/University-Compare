@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUniversities } from "../store/slice/university/universitySlice";
 import UniversityCard from "../components/UniversityCard";
 import { RingLoader } from "react-spinners";
-import { debounce } from "lodash";
 import DebounceTextInput from "../components/DebounceTextInput";
 import { useNavigate } from "react-router-dom";
 

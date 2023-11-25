@@ -1,5 +1,4 @@
 import { Op } from "sequelize";
-import { MOCK_DATA } from "../MOCK_DATA.js";
 
 import DB from "../repository/db.js";
 const { Universities } = DB;
@@ -66,6 +65,15 @@ class UniversityController {
         },
       });
       res.status(200).json({ data: data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  countUniversities = async (req, res) => {
+    try {
+      const count = await Universities.count();
+      res.status(200).json({ data: count });
     } catch (err) {
       console.log(err);
     }
